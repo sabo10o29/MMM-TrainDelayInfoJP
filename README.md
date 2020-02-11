@@ -1,30 +1,28 @@
 # MMM-TimeTreeEvent
-Display your TimeTree event on your magic mirror.
+Display delay information of target japan trains on your magic mirror.
+This module uses [鉄道遅延情報のjson](https://rti-giken.jp/fhc/api/train_tetsudo/)
 
 ## Features
 
-## Screenshot
-- `Sample screenshot 1`  
+<!-- ## Screenshot -->
+<!-- - `Sample screenshot 1`  
 ![Screenshot](https://github.com/sabo10o29/MMM-TimeTreeEvent/blob/master/sc01.png)
 
 - `Sample screenshot 2`  
-![Screenshot](https://github.com/sabo10o29/MMM-TimeTreeEvent/blob/master/sc02.png)
+![Screenshot](https://github.com/sabo10o29/MMM-TimeTreeEvent/blob/master/sc02.png) -->
 
 
 ## UPDATE
 **1.0.0**
-- Simple viewer for TimeTree event.
+- Simple viewer for delay info.
 
 ## Installation
 ```javascript
 cd ~/MagicMirror/modules/
-git clone https://github.com/sabo10o29/MMM-TimeTreeEvent.git
-cd MMM-TimeTreeEvent
+git clone https://github.com/sabo10o29/MMM-TrainDelayInfoJP.git
+cd MMM-TrainDelayInfoJP
 npm install
 ```
-
-## Get `timetreeapp.com` API Key
-https://timetreeapp.com/personal_access_tokens
 
 ## Necessary Configuration
 ```javascript
@@ -33,21 +31,20 @@ https://timetreeapp.com/personal_access_tokens
     //Positions of *_bar and *_third are not support.
     position: "top_left",
     config: {
-        appid: "***Your api key***",
-        //You need to get the target calender id with Get calender id api[1]
-        calenderid: "***Calender id***",
+        notifyLines:[
+            //Please fill in some the line name which you want to check. 
+            //Find the line name from the line list[1]
+			"Line name",
+		],
     }
 },
 ```
-[[1] Get calender id api](https://developers.timetreeapp.com/ja/docs/api#get-calendarscalendar_id)  
+[[1]Line list](https://rti-giken.jp/fhc/api/train_tetsudo/)
 
 ## Optional Configuration
 
 | Option               | Description
 |--------------------- |-----------
-| `upadteinterval`     | Update interval to get event from TimeTree.  <br><br>**Type:** `int` <br> **Default value:** `3 * 60 * 60 *1000 (3 hours)`
+| `upadteinterval`     | Update interval to get event from '鉄道遅延情報のjson'.  <br><br>**Type:** `int` <br> **Default value:** `3 * 60 * 60 *1000 (3 hours)`
 | `timeFormat`         | Display the scheduled time based on [moment.js](https://momentjs.com/docs/). <br><br>**Type:** `String` <br> **Default value:** `HH:mm`
-| `eventWordCount`     | Maximum length to show the event title. <br><br>**Type:** `int` <br> **Default value:** `10`
-| `days`               | Get events from today to n-th day. <br><br>**Type:** `int` <br> **Default value:** `1`
-| `title`              | Title name <br><br>**Type:** `String` <br> **Default value:** `Today's event　　`
-
+| `title`              | Title name <br><br>**Type:** `String` <br> **Default value:** `⚠︎Delay info　　`

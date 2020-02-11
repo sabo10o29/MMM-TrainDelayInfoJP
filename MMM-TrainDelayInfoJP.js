@@ -11,10 +11,7 @@ Module.register("MMM-TrainDelayInfoJP",{
 		api: "https://tetsudo.rti-giken.jp/free/delay.json",
 		animationSpeed: 1000,
 		upadteInterval: 3 * 60 * 60 *1000, //msec
-		notifyLines:[
-			"リアス線",
-			"別所線",
-		],
+		timeFormat: "HH:mm",
 		title: "⚠︎Delay info　　"
 	},
 
@@ -58,7 +55,7 @@ Module.register("MMM-TrainDelayInfoJP",{
 		title.innerHTML = this.config.title;
 
 		var table = document.createElement("table");
-		table.className = "timetree";
+		table.className = "info";
 		if(this.data.position == "top_right" || this.data.position == "bottom_right" ){
 			table.style.marginLeft = "auto";
 		}
@@ -66,14 +63,14 @@ Module.register("MMM-TrainDelayInfoJP",{
 		for(var i = 0; i < this.delayInfos.length; i++){
 			var info = this.delayInfos[i];
 			var infoItem = document.createElement("tr");
+			infoItem.className = "bright";
 			// Add time
 			var time = document.createElement("td");
 			time.className = "time";
-			time.innerHTML = moment.unix(Number(info.lastupdate)).format("HH:mm");
+			time.innerHTML = moment.unix(Number(info.lastupdate)).format(this.config.timeFormat);
 			infoItem.appendChild(time);
 			//Add event content
 			var content = document.createElement("td");
-			content.className = "content";
 			content.innerHTML = info.name;
 			infoItem.appendChild(content);
 			table.appendChild(infoItem);
