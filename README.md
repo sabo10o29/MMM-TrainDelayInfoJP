@@ -1,4 +1,4 @@
-# MMM-TimeTreeEvent
+# MMM-TrainDelayInfoJP
 Display delay information of target japan trains on your magic mirror.
 This module uses [鉄道遅延情報のjson](https://rti-giken.jp/fhc/api/train_tetsudo/)
 
@@ -32,7 +32,7 @@ npm install
     position: "top_left",
     config: {
         notifyLines:[
-            //Please fill in some the line name which you want to check. 
+            //Please fill in some the line name which you want to check their delays. 
             //Find the line name from the line list[1]
 			"Line name",
 		],
