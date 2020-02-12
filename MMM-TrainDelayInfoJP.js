@@ -81,12 +81,11 @@ Module.register("MMM-TrainDelayInfoJP",{
 	},
 
 	socketNotificationReceived: function(notification, payload) {
-		this.delayInfos = [];
 		if(notification !== "GOT-TRAIN-DERAY-INFO-JP-EVENT" || payload == null){
-			this.updateDom(this.config.animationSpeed);
 			return;
 		}
 
+		this.delayInfos = [];
 		Log.info("Success to get train delay information!!");
 		for (var i = 0; i < payload.result.length; i ++) {
 			if(this.config.notifyLines.includes(payload.result[i].name)){
