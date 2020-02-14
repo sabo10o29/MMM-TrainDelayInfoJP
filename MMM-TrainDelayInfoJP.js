@@ -10,7 +10,7 @@ Module.register("MMM-TrainDelayInfoJP",{
 
 		api: "https://tetsudo.rti-giken.jp/free/delay.json",
 		animationSpeed: 1000,
-		upadteInterval: 3 * 60 * 60 *1000, //msec
+		upadteInterval: 20 * 60 * 1000, //msec
 		timeFormat: "HH:mm",
 		title: "⚠︎Delay info　　"
 	},
