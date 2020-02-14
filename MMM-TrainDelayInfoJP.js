@@ -31,7 +31,7 @@ Module.register("MMM-TrainDelayInfoJP",{
 		Log.info("Starting module: " + self.name);
 
 		setInterval(function() {
-			that.sendSocketNotification("GET-TRAIN-DERAY-INFO-JP-EVENT", this.getOptions());
+			self.sendSocketNotification("GET-TRAIN-DERAY-INFO-JP-EVENT", self.getOptions());
 		}, self.config.upadteInterval);
 
 		this.sendSocketNotification("GET-TRAIN-DERAY-INFO-JP-EVENT", this.getOptions());
