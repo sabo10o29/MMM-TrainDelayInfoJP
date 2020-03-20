@@ -1,15 +1,13 @@
 # MMM-TrainDelayInfoJP
-Display delay information of target japan trains on your magic mirror.
-This module uses [鉄道遅延情報のjson](https://rti-giken.jp/fhc/api/train_tetsudo/)
+Display the delay information of target trains on your magic mirror.
+This module uses [鉄道遅延情報のjson](https://rti-giken.jp/fhc/api/train_tetsudo/).
+The display time is the last update time of the delay information on the resource server.
 
 ## Features
 
-<!-- ## Screenshot -->
-<!-- - `Sample screenshot 1`  
-![Screenshot](https://github.com/sabo10o29/MMM-TimeTreeEvent/blob/master/sc01.png)
-
-- `Sample screenshot 2`  
-![Screenshot](https://github.com/sabo10o29/MMM-TimeTreeEvent/blob/master/sc02.png) -->
+## Screenshot
+-`Sample screenshot 1`  
+![Screenshot](https://github.com/sabo10o29/MMM-TrainDelayInfoJP/blob/master/sc01.png)
 
 
 ## UPDATE
@@ -27,12 +25,12 @@ npm install
 ## Necessary Configuration
 ```javascript
 {
-    module: "MMM-TimeTreeEvent",
+    module: "MMM-TrainDelayInfoJP",
     //Positions of *_bar and *_third are not support.
     position: "top_left",
     config: {
         notifyLines:[
-            //Please fill in some the line name which you want to check their delays. 
+            //Please fill in the some line names which you want to check their delay. 
             //Find the line name from the line list[1]
 			"Line name",
 		],
@@ -46,5 +44,5 @@ npm install
 | Option               | Description
 |--------------------- |-----------
 | `upadteinterval`     | Update interval to get event from '鉄道遅延情報のjson'.  <br><br>**Type:** `int` <br> **Default value:** `3 * 60 * 60 *1000 (3 hours)`
-| `timeFormat`         | Display the scheduled time based on [moment.js](https://momentjs.com/docs/). <br><br>**Type:** `String` <br> **Default value:** `HH:mm`
+| `timeFormat`         | The time format of the delay info based on [moment.js](https://momentjs.com/docs/). <br><br>**Type:** `String` <br> **Default value:** `HH:mm`
 | `title`              | Title name <br><br>**Type:** `String` <br> **Default value:** `⚠︎Delay info　　`
